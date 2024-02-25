@@ -11,19 +11,19 @@ contract SimpleERC20 {
     uint256 public totalSupply;
     mapping(address => uint256) public balanceOf;
 
-    event Transfer(address indexed from, address indexed to, uint256 value);
+event Transfer(address indexed from, address indexed to, uint256 value);
 
-    constructor(uint256 initialSupply) {
+constructor(uint256 initialSupply) {
         totalSupply = initialSupply * (10 ** uint256(decimals));
         balanceOf[msg.sender] = totalSupply;
         emit Transfer(address(0), msg.sender, totalSupply);
     }
 
-    function transfer(address to, uint256 value) external returns (bool) {
+function transfer(address to, uint256 value) external returns (bool) {
         require(to != address(0), "Transfer to the zero address");
         require(balanceOf[msg.sender] >= value, "Insufficient balance");
 
-        balanceOf[msg.sender] -= value;
+balanceOf[msg.sender] -= value;
         balanceOf[to] += value;
         emit Transfer(msg.sender, to, value);
         return true;
@@ -72,8 +72,9 @@ Plataformas DeFi integradas
 
 Descentralizada
 
-decentralized financ (15).jpg
+
 Geração de Receita com a  Prospectra
+
 ​Taxas de Juros: Após a aceitação do contrato, as criptomoedas continuarão em staking de acordo com o período de desbloqueio da blockchain em questão. O valor do staking após a assinatura do contrato, ao fim do período determinado, será direcionado para a plataforma, enquanto o usuário receberá todas as recompensas acumuladas. Os lucros acumulados após a assinatura do contrato serão retidos pela plataforma.
 
 Taxas de Assinatura: Ao assinarem contratos com a Prospectra para lucrar, os usuários também podem gerar receita para a plataforma por meio das taxas de assinatura cobradas.
